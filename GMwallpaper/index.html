@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberWalls - Ultimate 4K Live & Cybercab Wallpapers</title>
+    
+    <meta property="og:title" content="CyberWalls - Free 4K Live & Cybercab Wallpapers">
+    <meta property="og:description" content="Gundua live wallpapers za bure za IT, Cybersecurity, Cybercab na 3D Parallax!">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff007f;
+            --bg-dark: #05070b;
+            --panel-bg: rgba(13, 19, 33, 0.9);
+            --card-bg: #0f172a;
+            --border-color: rgba(0, 240, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Top Ad Space */
+        .ad-space-top {
+            background: #090d16;
+            color: #64748b;
+            text-align: center;
+            padding: 6px;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: var(--panel-bg);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .goog-te-combo {
+            background: #080b11;
+            color: #00f0ff;
+            border: 1px solid var(--border-color);
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+
+        .btn-main {
+            background: linear-gradient(45deg, var(--primary), #0070f3);
+            color: #000;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-main:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        /* MUUNDO MPYA: Layout yenye Side Ads Pembeni kabisa */
+        .wrapper-layout {
+            display: grid;
+            grid-template-columns: 160px 240px 1fr 160px;
+            gap: 20px;
+            padding: 25px 3%;
+        }
+
+        @media (max-width: 1200px) {
+            .wrapper-layout {
+                grid-template-columns: 240px 1fr;
+            }
+            .side-ad-left, .side-ad-right {
+                display: none; /* Kwenye simu au skrini ndogo zinajificha zisiwatese watumiaji */
+            }
+        }
+
+        @media (max-width: 800px) {
+            .wrapper-layout {
+                grid-template-columns: 1fr;
+            }
+            sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        /* Side Ads Styling (Pembeni ya pembeni) */
+        .side-ad-container {
+            background: rgba(13, 19, 33, 0.5);
+            border: 1px dashed rgba(0, 240, 255, 0.2);
+            border-radius: 10px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            padding: 10px;
+            position: sticky;
+            top: 85px;
+        }
+
+        /* Sidebar ya Kategoria */
+        sidebar {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 85px;
+        }
+
+        sidebar h3 {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .cat-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            color: #cbd5e1;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-item:hover, .cat-item.active {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Content Area */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title span {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: normal;
+        }
+
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card ya Wallpaper */
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            height: 380px;
+            perspective: 1000px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .card video {
+            width: 112%;
+            height: 112%;
+            object-fit: cover;
+            position: absolute;
+            top: -6%;
+            left: -6%;
+            transition: transform 0.1s ease-out;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+            border: 1px solid var(--primary);
+            z-index: 10;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(5, 7, 11, 0.98), rgba(5, 7, 11, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Tangazo dogo la chini kabisa karibu na kitufe cha Download */
+        .card-download-ad {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            text-align: center;
+            font-size: 10px;
+            color: #00f0ff;
+            padding: 3px;
+            border-radius: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-action {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-action.download {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+        }
+
+        .btn-action:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .loading {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 60px;
+            color: #64748b;
+        }
+
+        /* Upload Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--panel-bg);
+            border: 1px solid var(--primary);
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #080b11;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Ad Space -->
+    <div class="ad-space-top">
+        <span>[ Top Banner Ad Space ]</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo" onclick="loadCategory('home', document.querySelector('.cat-item'))">CYBERWALLS</div>
+        
+        <div class="nav-actions">
+            <div id="google_translate_element"></div>
+            <button class="btn-main" onclick="openUploadModal()">+ Upload</button>
+        </div>
+    </header>
+
+    <!-- Muundo Mpya: Tangazo la Kushoto + Sidebar + Wallpapers Grid + Tangazo la Kulia -->
+    <div class="wrapper-layout">
+        
+        <!-- 1. Tangazo la Kushoto Pembeni (Left Sticky Ad) -->
+        <div class="side-ad-left side-ad-container">
+            <!-- WEKA CODE ZAKO ZA ADSTERRA BANNER HAPA -->
+            <span>[ Adsterra Left Sidebar Ad 160x600 ]</span>
+        </div>
+
+        <!-- 2. Sidebar ya Kategoria -->
+        <sidebar>
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li class="cat-item active" onclick="loadCategory('home', this)">🔥 Home / Trending (Mix)</li>
+                <li class="cat-item" onclick="loadCategory('cyber', this)">💻 IT, Cyber & Cybercab</li>
+                <li class="cat-item" onclick="loadCategory('parallax', this)">🌀 3D Parallax Tech</li>
+                <li class="cat-item" onclick="loadCategory('coding', this)">⚙️ Dev & Coding</li>
+                <li class="cat-item" onclick="loadCategory('scifi', this)">🚀 Sci-Fi & Futuristic</li>
+            </ul>
+        </sidebar>
+
+        <!-- 3. Sehemu Kuu ya Wallpapers -->
+        <div class="content-area">
+            <div class="section-title">
+                <p id="sectionHeading">Home / Trending Wallpapers</p>
+                <span id="itemCount">Inapakia...</span>
+            </div>
+
+            <main class="wallpaper-grid" id="wallpaperGrid">
+                <div class="loading">Inapakia maudhui ya moto...</div>
+            </main>
+        </div>
+
+        <!-- 4. Tangazo la Kulia Pembeni (Right Sticky Ad) -->
+        <div class="side-ad-right side-ad-container">
+            <!-- WEKA CODE ZAKO ZA ADSTERRA BANNER HAPA -->
+            <span>[ Adsterra Right Sidebar Ad 160x600 ]</span>
+        </div>
+
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 10px;">Weka Wallpaper Yako</h3>
+            <p style="color: #64748b; font-size: 12px; margin-bottom: 15px;">Itakaguliwa kabla haijaonekana kwenye ukurasa wa mbele.</p>
+            <input type="text" placeholder="Jina la Wallpaper">
+            <select>
+                <option>IT, Cyber & Cybercab</option>
+                <option>3D Parallax Tech</option>
+                <option>Dev & Coding</option>
+                <option>Sci-Fi & Futuristic</option>
+            </select>
+            <input type="file" accept="video/*, image/*">
+            <button class="btn-main" style="width: 100%; margin-top: 10px; cursor: pointer;" onclick="closeUploadModal()">Tuma kwa Uhakiki</button>
+        </div>
+    </div>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'sw',
+                includedLanguages: 'sw,en,fr,es,ar,de,zh-CN,hi,pt',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        const categoriesData = {
+            home: [
+                { title: "Autonomous Cybercab AI Interface", type: "CYBERCAB", src: "https://assets.mixkit.co/videos/preview/mixkit-futuristic-robot-head-animation-43188-large.mp4" },
+                { title: "Neon Cyberpunk Tunnel 3D", type: "3D PARALLAX", src: "https://assets.mixkit.co/videos/preview/mixkit-tunnel-of-futuristic-neon-lights-41551-large.mp4" },
+                { title: "Software Engineer Workspace", type: "DEV", src: "https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41554-large.mp4" },
+                { title: "Matrix Binary Code Stream", type: "CYBER", src: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-code-31828-large.mp4" },
+                { title: "Galaxy Nebula Space Loop", type: "SCI-FI", src: "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-background-animation-41549-large.mp4" },
+                { title: "Cyber Shield Fleet Security", type: "CYBERCAB", src: "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-system-interface-animation-43187-large.mp4" }
+            ],
+            cyber: [
+                { title: "Autonomous Cybercab AI Interface", type: "CYBERCAB 4K", src: "https://assets.mixkit.co/videos/preview/mixkit-futuristic-robot-head-animation-43188-large.mp4" },
+                { title: "Cybercab Fleet Network Security", type: "CYBERCAB SECURE", src: "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-system-interface-animation-43187-large.mp4" },
+                { title: "Matrix Binary Code & Terminal", type: "CYBER SECURITY", src: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-code-31828-large.mp4" },
+                { title: "Hacker Dashboard Command Center", type: "IT INFRASTRUCTURE", src: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-hacker-typing-on-a-keyboard-41445-large.mp4" }
+            ],
+            parallax: [
+                { title: "Neon Cyberpunk Tunnel 3D", type: "3D PARALLAX", src: "https://assets.mixkit.co/videos/preview/mixkit-tunnel-of-futuristic-neon-lights-41551-large.mp4" },
+                { title: "Abstract Floating Geometry", type: "3D PARALLAX", src: "https://assets.mixkit.co/videos/preview/mixkit-abstract-animation-of-cubes-floating-in-space-41552-large.mp4" }
+            ],
+            coding: [
+                { title: "Software Engineer Workspace", type: "DEV WORKSPACE", src: "https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41554-large.mp4" },
+                { title: "Data Center Server Racks", type: "CLOUD SERVERS", src: "https://assets.mixkit.co/videos/preview/mixkit-data-center-server-racks-41553-large.mp4" }
+            ],
+            scifi: [
+                { title: "Futuristic Core Power", type: "SCI-FI TECH", src: "https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-robot-head-animation-43188-large.mp4" },
+                { title: "Galaxy Nebula Loop", type: "SPACE VIBE", src: "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-background-animation-41549-large.mp4" }
+            ]
+        };
+
+        const grid = document.getElementById('wallpaperGrid');
+        const heading = document.getElementById('sectionHeading');
+        const countLabel = document.getElementById('itemCount');
+
+        function loadCategory(key, element) {
+            if(element) {
+                document.querySelectorAll('.cat-item').forEach(item => item.classList.remove('active'));
+                element.classList.add('active');
+            }
+
+            grid.innerHTML = '<div class="loading">Inapakia wallpapers...</div>';
+            
+            if(key === 'home') heading.textContent = 'Home / Trending Wallpapers (Mix)';
+            if(key === 'cyber') heading.textContent = 'IT, Cyber & Cybercab Zone';
+            if(key === 'parallax') heading.textContent = '3D Parallax Tech Zone';
+            if(key === 'coding') heading.textContent = 'Dev & Coding Zone';
+            if(key === 'scifi') heading.textContent = 'Sci-Fi & Futuristic Zone';
+
+            const items = categoriesData[key] || categoriesData['home'];
+            countLabel.textContent = `${items.length} Wallpapers Zimepatikana`;
+            
+            grid.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-badge">${item.type}</div>
+                    <video autoplay loop muted playsinline src="${item.src}"></video>
+                    <div class="card-overlay">
+                        <div class="card-title">${item.title}</div>
+                        <!-- Tangazo dogo linaloonekana hapo hapo chini karibu na Download Area -->
+                        <div class="card-download-ad">[ Sponsor / Native Ad Area ]</div>
+                        <div class="card-footer">
+                            <button class="btn-action" onclick="shareWallpaper('${item.title}')">🔗 Share</button>
+                            <a href="${item.src}" target="_blank" download class="btn-action download">⬇️ Download</a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+                applyParallaxEffect(card);
+            });
+        }
+
+        function shareWallpaper(title) {
+            const currentUrl = window.location.href;
+            const shareText = `Angalia Live Wallpaper hii kali ya "${title}" kutoka CyberWalls: ${currentUrl}`;
+            
+            if (navigator.share) {
+                navigator.share({ title: 'CyberWalls', text: shareText, url: currentUrl }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareText);
+                alert('Link imenakiliwa! Weka kwenye magroup ya WhatsApp au Telegram.');
+            }
+        }
+
+        function applyParallaxEffect(card) {
+            const video = card.querySelector('video');
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                video.style.transform = `scale(1.15) translate(${x * 20}px, ${y * 20}px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                video.style.transform = 'scale(1.05) translate(0px, 0px)';
+            });
+        }
+
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'flex';
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+            alert('Wallpaper yako imetumikiwa kwa mafanikio! Inasubiri uhakiki wako.');
+        }
+
+        loadCategory('home', document.querySelector('.cat-item'));
+    </script>
+</body>
+</html>
